@@ -1,0 +1,374 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Temple Somatics Event SOP</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@400..700&display=swap">
+<style>
+/* Layout: teal title band, five-stage stepper, sticky section nav, then one section per stage with task cards, owner pills and a checkpoint; resources near the top. */
+:root{
+  --bg:#F6FAFB; --surface:#FFFFFF; --ink:#121A1D; --muted:#4F6168; --line:#D3E2E7;
+  --teal:#004E66; --teal-2:#225B76; --mist:#E6F1F4; --pale:#BEDCE5; --on-teal:#FFFFFF; --on-teal-soft:#D7E9EF;
+  --r-T:#004E66; --r-L:#A8620E; --r-O:#2F7D4E; --r-C:#A8435A; --r-U:#5B6875; --r-A:#121A1D;
+  --shadow:rgba(0,40,55,.35);
+  --display:'Bodoni Moda', Georgia, 'Times New Roman', serif;
+  --body:'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C181C; --surface:#12252B; --ink:#E6F0F2; --muted:#9FB5BC; --line:#23404A;
+  --teal:#7FC3D6; --teal-2:#5FA7BD; --mist:#15303A; --pale:#0C181C; --on-teal:#0C181C; --on-teal-soft:#0C181C;
+  --r-T:#7FC3D6; --r-L:#E7A85A; --r-O:#73C796; --r-C:#E8899D; --r-U:#A9B6C0; --r-A:#E6F0F2;
+  --shadow:rgba(0,0,0,.6);
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0C181C; --surface:#12252B; --ink:#E6F0F2; --muted:#9FB5BC; --line:#23404A;
+  --teal:#7FC3D6; --teal-2:#5FA7BD; --mist:#15303A; --pale:#0C181C; --on-teal:#0C181C; --on-teal-soft:#0C181C;
+  --r-T:#7FC3D6; --r-L:#E7A85A; --r-O:#73C796; --r-C:#E8899D; --r-U:#A9B6C0; --r-A:#E6F0F2;
+  --shadow:rgba(0,0,0,.6);
+  color-scheme:dark;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.gut{padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+a{color:var(--teal)}
+
+/* hero */
+.hero{background:var(--teal);color:var(--on-teal);position:relative;overflow:hidden}
+.hero .wrap{padding-block:56px 60px;display:flex;flex-direction:column;gap:14px;position:relative}
+.hero .eyebrow{color:var(--pale)}
+.hero h1{font-size:clamp(38px,6vw,66px);line-height:1.02}
+.hero p{max-width:62ch;margin:0;font-size:16px;color:var(--on-teal-soft)}
+.arc{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;font-family:var(--display);font-style:italic;font-size:19px}
+.arc span{display:inline-flex;align-items:center;gap:8px}
+.arc span+span::before{content:"→";font-style:normal;font-family:var(--body);font-size:14px;opacity:.7}
+.meta{font-size:13px;opacity:.85}
+.ripple{position:absolute;right:-120px;top:-120px;width:460px;height:460px;pointer-events:none;opacity:.18}
+.ripple circle{fill:none;stroke:var(--on-teal);stroke-width:1.2}
+
+/* stepper */
+.stepper{margin-top:-30px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit;min-width:0;box-shadow:0 6px 18px -12px var(--shadow);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+.step:hover{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 14px 26px -14px var(--shadow)}
+.step:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.num{width:30px;height:30px;border-radius:50%;background:var(--teal);color:var(--on-teal);display:grid;place-items:center;font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;flex:none}
+.step b{font-family:var(--display);font-weight:600;font-size:20px;line-height:1.1}
+.step .when{font-size:12.5px;color:var(--muted)}
+.step .gate{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}
+.step .gate::before{content:"◆ ";color:var(--teal)}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-top:28px}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:thin}
+nav.toc a{flex:none;font-size:13px;font-weight:600;color:var(--teal);text-decoration:none;padding:6px 12px;border-radius:50px;border:1px solid var(--line);background:var(--surface);transition:background .2s ease, color .2s ease}
+nav.toc a:hover,nav.toc a.on{background:var(--teal);color:var(--on-teal);border-color:var(--teal)}
+nav.toc a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+main .wrap{display:flex;flex-direction:column;gap:64px;padding-block:44px 80px}
+section{scroll-margin-top:64px;display:flex;flex-direction:column;gap:18px}
+.sec-head{display:flex;gap:16px;align-items:flex-start}
+.sec-head .num{width:44px;height:44px;font-size:18px;margin-top:2px}
+.sec-head h2{font-size:clamp(28px,3.6vw,38px);line-height:1.1}
+.sec-head .eyebrow{color:var(--teal);margin-bottom:4px}
+.lede{max-width:70ch;margin:0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;background:var(--mist);border-radius:50px;padding:5px 12px}
+.chip b{font-weight:600;color:var(--teal)}
+
+/* resources */
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.res a{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;text-decoration:none;color:inherit;min-width:0;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+.res a:hover{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 14px 26px -14px var(--shadow)}
+.res a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.res .kind{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal)}
+.res b{font-family:var(--display);font-size:21px;font-weight:600;line-height:1.15}
+.res span.d{color:var(--muted);font-size:14px}
+.res .use{margin-top:auto;font-size:12.5px;font-weight:600;color:var(--ink)}
+.res .go{font-size:13px;font-weight:700;color:var(--teal)}
+.res a:hover .go{text-decoration:underline}
+
+/* task cards */
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;min-width:0;transition:border-color .25s ease, box-shadow .25s ease}
+.card:hover{border-color:color-mix(in srgb, var(--teal) 45%, var(--line));box-shadow:0 10px 22px -16px var(--shadow)}
+.card h3{font-family:var(--body);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:10px}
+.card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.card li{display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start}
+.card li::before{content:"";width:14px;height:14px;border:1.5px solid var(--teal-2);border-radius:4px;margin-top:4px}
+.task{min-width:0}
+.owners{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.pill{font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 9px;border-radius:50px;color:var(--c);background:color-mix(in srgb, var(--c) 13%, var(--surface));border:1px solid color-mix(in srgb, var(--c) 30%, transparent)}
+.note{font-size:12.5px;color:var(--muted)}
+
+.gatebox{display:flex;gap:14px;align-items:flex-start;background:var(--teal);color:var(--on-teal);border-radius:14px;padding:16px 20px}
+.gatebox .dia{width:14px;height:14px;background:var(--on-teal);transform:rotate(45deg);margin-top:6px;flex:none;opacity:.9}
+.gatebox b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
+.rules{background:var(--mist);border-radius:14px;padding:18px 20px}
+.rules h3{font-family:var(--body);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:8px}
+.rules ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--mist)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+.example{background:var(--surface);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:14px 18px;max-width:80ch}
+
+/* steps (change/cancel) */
+ol.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;counter-reset:f}
+ol.flow li{counter-increment:f;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+ol.flow li::before{content:counter(f);width:28px;height:28px;border-radius:50%;background:var(--teal-2);color:var(--on-teal);display:grid;place-items:center;font-weight:700;font-size:13px}
+ol.flow b{font-size:15px}
+ol.flow .t{font-size:12px;font-weight:700;color:var(--teal);letter-spacing:.04em}
+.changes{columns:2 320px;column-gap:28px;margin:0;padding-left:18px}
+.changes li{margin-bottom:6px;break-inside:avoid}
+footer{color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:20px}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes breathe{0%,100%{transform:rotate(45deg) scale(1)}50%{transform:rotate(45deg) scale(1.25)}}
+  .hero .wrap > *{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero .wrap > *:nth-child(2){animation-delay:.08s}
+  .hero .wrap > *:nth-child(3){animation-delay:.16s}
+  .hero .wrap > *:nth-child(4){animation-delay:.24s}
+  .hero .wrap > *:nth-child(5){animation-delay:.32s}
+  .ripple{animation:spin 90s linear infinite}
+  .step{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+  .step:nth-child(1){animation-delay:.25s}.step:nth-child(2){animation-delay:.33s}.step:nth-child(3){animation-delay:.41s}.step:nth-child(4){animation-delay:.49s}.step:nth-child(5){animation-delay:.57s}
+  .gatebox .dia{animation:breathe 3.6s ease-in-out infinite}
+  .rv{transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1)}
+  .rv.pre{opacity:.35;transform:translateY(18px)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+@media (max-width:860px){.stepper{grid-template-columns:1fr 1fr}.step:last-child{grid-column:1 / -1}}
+@media (max-width:480px){.stepper{grid-template-columns:1fr}.groups{grid-template-columns:1fr}.ripple{width:300px;height:300px;right:-110px;top:-90px}}
+</style>
+
+<header class="hero gut">
+  <svg class="ripple" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="48"/><circle cx="100" cy="100" r="66" stroke-dasharray="2 6"/><circle cx="100" cy="100" r="84"/><circle cx="100" cy="100" r="98" stroke-dasharray="1 9"/></svg>
+  <div class="wrap">
+    <div class="eyebrow">Temple Somatics® · Standard Operating Procedure</div>
+    <h1>Event SOP</h1>
+    <p>Every Temple Somatics® event, whether an Immersion, a Practitioner Program retreat or a virtual course, moves through five stages. This page says what happens in each stage, when it starts, and who owns it.</p>
+    <div class="arc" aria-label="The five stages"><span>foundation</span><span>invitation</span><span>preparation</span><span>facilitation</span><span>integration</span></div>
+    <div class="meta">Draft for review · October 20, 2026 · Timings shown are for an in-person Immersion</div>
+  </div>
+</header>
+
+<div class="gut"><div class="wrap stepper" id="stepper"></div></div>
+
+<nav class="toc gut" aria-label="Sections"><div class="wrap" id="toc">
+  <a href="#roles">Roles</a><a href="#resources">Templates</a><a href="#timing">Timing</a><a href="#s1">1 Foundation</a><a href="#s2">2 Invitation</a><a href="#s3">3 Preparation</a><a href="#s4">4 Facilitation</a><a href="#s5">5 Integration</a><a href="#change">Change or cancel</a><a href="#work">Working together</a><a href="#changed">What changed</a>
+</div></nav>
+
+<main class="gut"><div class="wrap" id="main">
+
+  <section id="roles" class="rv">
+    <div class="sec-head"><div><div class="eyebrow">Who does what</div><h2>Roles</h2></div></div>
+    <p class="lede">Every area has one owner who makes sure it gets done. Tria approves anything that speaks for the brand or commits money. The colored labels on each task below show its owner.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Role</th><th>Person</th><th>Owns</th><th>Approves</th></tr></thead>
+      <tbody id="roles-body"></tbody>
+    </table></div>
+  </section>
+
+  <section id="resources" class="rv">
+    <div class="sec-head"><div><div class="eyebrow">Use alongside this SOP</div><h2>Templates and references</h2></div></div>
+    <div class="res">
+      <a href="https://docs.google.com/document/d/19CriQtdbtUAPRinkzT_X6l-laijLck6t_G2sjUWnysk/edit?usp=sharing" target="_blank" rel="noopener">
+        <span class="kind">Template · Google Doc</span><b>Temple Somatics General Checklist</b>
+        <span class="d">The event basics sheet: name, dates, times, target participants, venue or platform, meals, rooms, co-facilitators, tech, medical support and transport.</span>
+        <span class="use">Fill in during Stage 1, Foundation</span><span class="go">Open checklist ↗</span></a>
+      <a href="https://docs.google.com/document/d/1mP658jNNIeouNwcvjBCzhewrfFuaxJMUQjEjwfa2BVk/edit?usp=sharing" target="_blank" rel="noopener">
+        <span class="kind">Template · Google Doc</span><b>Ground Team Checklist</b>
+        <span class="d">For the local organizer and on-site team: venue setup, check-in, rooms, meals, tech, transport, plus the do's and don'ts, including never taking payments directly.</span>
+        <span class="use">Share in Stage 3, use in Stage 4</span><span class="go">Open checklist ↗</span></a>
+      <a href="https://liberationworkshops.com/liberation-childhood-experience-workshops/" target="_blank" rel="noopener">
+        <span class="kind">Reference · Website</span><b>Event page model</b>
+        <span class="d">How we want events listed online: one page with a card per event showing dates, location and a status such as "Registration is open", with links to the application, registration and FAQ.</span>
+        <span class="use">Build in Stage 1, update whenever dates change</span><span class="go">View example ↗</span></a>
+    </div>
+  </section>
+
+  <section id="timing" class="rv">
+    <div class="sec-head"><div><div class="eyebrow">Count back from day one</div><h2>How far ahead to start</h2></div></div>
+    <p class="lede">People who apply and fly in need months, not weeks, so in-person events start earliest. These are recommended starting points; Laila sets the exact dates for each event in Trello during Foundation.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Event type</th><th>Start Foundation</th><th>Open applications</th><th>Go/no-go check</th><th>Close applications</th></tr></thead>
+      <tbody>
+        <tr><td>In-person Immersion (international travel)</td><td>9 months before</td><td>6 months before</td><td>10 weeks before</td><td>3 to 4 weeks before</td></tr>
+        <tr><td>Practitioner Program (virtual modules plus retreat)</td><td>9 months before Module 1</td><td>6 months before Module 1</td><td>8 weeks before Module 1</td><td>2 weeks before Module 1</td></tr>
+        <tr><td>Virtual course only</td><td>12 weeks before</td><td>8 weeks before</td><td>3 weeks before</td><td>1 week before</td></tr>
+      </tbody>
+    </table></div>
+    <div class="example"><b>Example:</b> for the Austria Immersion on July 5 to 11, 2027, Foundation starts in October 2026, applications open in January 2027, the go/no-go check is in late April, and applications close in early June.</div>
+  </section>
+
+  <div id="stages" style="display:contents"></div>
+
+  <section id="change" class="rv">
+    <div class="sec-head"><div><div class="eyebrow">When plans shift</div><h2>Changing or cancelling an event</h2></div></div>
+    <p class="lede">When an event moves, changes format or is cancelled, people who already trust us hear it from us personally first. Everything else follows in this order.</p>
+    <ol class="flow">
+      <li><span class="t">SAME DAY</span><b>Decide and tell the team</b><span>Tria decides and messages Laila, the organizer and the co-facilitator in the team WhatsApp group.</span></li>
+      <li><span class="t">WITHIN 24 HOURS</span><b>Pause all marketing</b><span>Laila stops scheduled posts, emails, ads and WhatsApp reminders, and marks the campaign plan and calendar as paused.</span></li>
+      <li><span class="t">WITHIN 48 HOURS</span><b>Contact applicants and payers</b><span>The organizer writes to each person one to one, explains the change, and offers a transfer or refund under the policy.</span></li>
+      <li><span class="t">WITHIN 48 HOURS</span><b>Update the website</b><span>Laila removes the event page and application form, or changes the event card's status and dates, following the event page model.</span></li>
+      <li><span class="t">THIS WEEK</span><b>Handle the venue and vendors</b><span>The organizer checks contracts, cancellation terms and deposits, and confirms changes in writing.</span></li>
+      <li><span class="t">THIS WEEK</span><b>Keep what can be reused</b><span>Laila saves any content recorded without event dates for later use.</span></li>
+      <li><span class="t">AFTER STEPS 3 AND 4</span><b>Announce publicly, if needed</b><span>One short, warm note by email or social, approved by Tria.</span></li>
+      <li><span class="t">ONCE SETTLED</span><b>Log it</b><span>Laila records the decision, dates, refunds and lessons in Trello and the event folder.</span></li>
+    </ol>
+    <p class="note">If the event moves to new dates, it starts again at Stage 1 with the new timeline, and the existing campaign is reused where it still fits.</p>
+  </section>
+
+  <section id="work" class="rv">
+    <div class="sec-head"><div><div class="eyebrow">Rhythm and tools</div><h2>How we work together</h2></div></div>
+    <div class="tbl"><table>
+      <thead><tr><th>What</th><th>Where</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td>Quick questions and updates</td><td>Team WhatsApp group</td><td>Reply within 1 working day</td></tr>
+        <tr><td>Tasks, owners and deadlines</td><td>Trello board, one per event</td><td>Every task has one owner and a due date</td></tr>
+        <tr><td>Approvals</td><td>Trello card or WhatsApp</td><td>Tria approves within 2 to 3 days; one reminder, then the item waits</td></tr>
+        <tr><td>Participant payments</td><td>Official registration and payment link only</td><td>No one on the team accepts cash, bank transfers or digital payments directly</td></tr>
+        <tr><td>Files</td><td>Temple Somatics Drive → Events → [Event Name + Year]</td><td>Contracts, participant lists, budgets and checklists live here</td></tr>
+        <tr><td>Check-ins</td><td>Video call</td><td>Weekly or biweekly in Foundation and Invitation; weekly in Preparation; twice daily on site</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Nothing goes out publicly without Tria's approval. After every event, Laila reviews this SOP and notes changes in Trello. Planned next SOPs: Media and Content Guidelines, Client Care Protocols, and Ethical Standards.</p>
+  </section>
+
+  <section id="changed" class="rv">
+    <div class="sec-head"><div><div class="eyebrow">Revision notes</div><h2>What changed from the previous version</h2></div></div>
+    <ul class="changes">
+      <li>Four stages became five. Marketing and applications now have their own stage, Invitation, that starts months earlier.</li>
+      <li>Timelines now depend on the event type. An in-person Immersion starts 9 months out, not 8 to 12 weeks.</li>
+      <li>Every task names an owner, and every stage ends with a "done when" checkpoint.</li>
+      <li>Roles are now Tria, Laila, the local organizer and the co-facilitator. Project management and website tasks sit with Laila.</li>
+      <li>Linked the General Checklist, the Ground Team Checklist and the event page model at the stages where each is used.</li>
+      <li>Participant payments go through the official link only, matching the Ground Team Checklist.</li>
+      <li>Added the go/no-go check, the minimum number of participants, and the refund and transfer policy.</li>
+      <li>Added application review and the 5 to 7 day reply promise.</li>
+      <li>Countdown posts moved from after the event to Preparation.</li>
+      <li>New section: changing or cancelling an event.</li>
+      <li>Brand name written as Temple Somatics®, to match the brand guidelines. [Tria to confirm ® over ™.]</li>
+    </ul>
+  </section>
+
+  <footer>Temple Somatics® Event SOP · Draft for review, October 20, 2026 · Owned by Laila, reviewed after every event.</footer>
+</div></main>
+
+<script>
+(function(){
+  const GEN = 'https://docs.google.com/document/d/19CriQtdbtUAPRinkzT_X6l-laijLck6t_G2sjUWnysk/edit?usp=sharing';
+  const GROUND = 'https://docs.google.com/document/d/1mP658jNNIeouNwcvjBCzhewrfFuaxJMUQjEjwfa2BVk/edit?usp=sharing';
+  const PEG = 'https://liberationworkshops.com/liberation-childhood-experience-workshops/';
+  const R = {
+    T:['Tria','Lead Facilitator and Vision','Program, facilitation, budget, pricing, final say on content','Prices, sales page, emails, applicant acceptance'],
+    L:['Laila','Marketing and Project Lead','Timeline, Trello, check-ins, campaign, content, website and forms, this SOP','Drafts go to Tria for approval'],
+    O:['Organizer','Local Organizer (per event, e.g. Olga)','Venue, local vendors, ground team, participant logistics and questions','Venue and vendor details'],
+    C:['Co-facilitator','Co-facilitator (per event)','Co-facilitation, shared content, personal outreach','Their own content'],
+    U:['Ground team','Ground team and assistants','On-site setup, check-in, meals, tech, photos with consent','']
+  };
+  const NAME = {T:'Tria',L:'Laila',O:'Organizer',C:'Co-facilitator',U:'Ground team',A:'Everyone'};
+  const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const pill = k => `<span class="pill" style="--c:var(--r-${k})">${NAME[k]}</span>`;
+  // a task's text may carry one link: [text, owners, {href,label}]
+  const taskHtml = ([txt,o,link]) => `<li><div class="task">${esc(txt)}${link?` <a href="${link.href}" target="_blank" rel="noopener">${esc(link.label)} ↗</a>`:''}<div class="owners">${[...o].map(pill).join('')}</div></div></li>`;
+
+  document.getElementById('roles-body').innerHTML = Object.entries(R).map(([k,r]) =>
+    `<tr><td>${esc(r[1])}</td><td>${pill(k)}</td><td>${esc(r[2])}</td><td>${esc(r[3]||'—')}</td></tr>`).join('');
+
+  const S = [
+    {id:'s1', name:'Foundation', when:'9 to 6 months before', lead:'Laila', short:'Venue signed, prices approved, form tested',
+     lede:"Foundation sets the event's base: what it is, where, for whom, at what price, and who does what. Nothing is promoted until this stage is done.",
+     groups:[
+      ['Team',[['Confirm the team for this event, including the local organizer and any co-facilitator','L'],['Set up the Trello board, WhatsApp group and Drive folder for the event','L'],['Book a weekly or biweekly check-in for the whole run','L']]],
+      ['Concept and program',[['Fill in the event basics:','TL',{href:GEN,label:'General Checklist'}],["Define the theme, who it's for, who it's not for, and the outcomes we can honestly describe",'T'],['Draft the program flow: daily arc, rituals, teaching, movement and integration','T'],['Check it against the brand values: integrity, embodiment, devotion, growth and community','T']]],
+      ['Venue and logistics',[['Choose and secure the venue: contract, deposit, permits, dates, check-in and check-out times','O'],['List equipment needs: massage tables, mats, linens, sound system, projector','O'],['Line up local vendors and support: transport, catering, photographer','O']]],
+      ['Budget and pricing',[['Draft the budget: venue, catering, travel, team stipends, marketing and ads','TO'],['Set price tiers and their deadlines, such as Early Bird and Standard','T'],['Agree organizer and facilitator splits in writing','TO'],['Write the refund, transfer and cancellation policy','TO'],['Set the minimum number of participants needed to run the event','T']]],
+      ['Marketing setup',[['Write the campaign plan and content calendar, working back from the event dates','L'],['Create event branding using the approved brand assets: theme, tagline, banners, graphics','L'],["Write the sales page copy: dates, location, who it's for, pricing, how to apply (Tria approves)",'L'],['Add the event card to the events page, following the','L',{href:PEG,label:'event page model'}],['Install tracking, such as the Meta pixel, before any ads run','L']]],
+      ['Registration system',[['Build the application form and payment flow (Fastpay / link.templesomatics.com)','L'],['Test the full flow end to end: apply, confirmation email, acceptance, payment','L'],['Decide the application rules: who reviews, the 5 to 7 day reply promise, deposit and payment plan terms','T']]]
+     ],
+     done:'The venue contract is signed, prices and policies are approved by Tria, and the sales page and application form are live and tested.'},
+    {id:'s2', name:'Invitation', when:'6 months to 3 or 4 weeks before', lead:'Laila', short:'Applications closed, group at or above minimum',
+     lede:'Invitation is where we find and welcome the right people. It runs from the day applications open until they close, and builds toward two deadlines: the early-bird date and the application close.',
+     groups:[
+      ['Marketing, in order of what fills seats',[['Personal invitations: each person lists 15 to 20 people who fit and reaches out one to one (Laila tracks)','TCO'],['Email about once a week, mostly teaching and stories with clear dates; drafted a week ahead, approved within 2 to 3 days','L'],["Communities: WhatsApp groups, ISTA and partner networks, schools and newsletters, after checking each group's rules (Laila writes the messages)",'OT'],['Local promotion as enrollment partner: own networks, flyers, Facebook events, answering inquiries with the FAQ','O'],['Instagram: about one Reel and one post a week, plus stories and collab posts with the co-facilitator','L'],['Ads, if used: send them to the free video training, not straight to the application; test wording first, since Meta restricts some sexual wellness language','L'],['Push hardest in the two weeks before each deadline','L']]],
+      ['Content from Tria',[['Record in batch sessions of about 60 minutes, one every 4 to 5 weeks (Laila sends the outline)','T'],['Write and record joint content with the co-facilitator in their own words (Laila edits)','TC']]],
+      ['Applications',[['Review applications on a rolling basis and reply within 5 to 7 days','T'],['Log every application in the participant tracker: status, payment, notes','L'],['Send acceptance emails with the official payment link and deadline','L'],["Follow up personally with anyone who applied but hasn't paid",'O']]],
+      ['Go/no-go check, 10 weeks before',[['Compare accepted, paid participants with the minimum set in Foundation','L'],['If below the minimum, decide: extend the push, change the format, or move or cancel the event','T']]]
+     ],
+     rules:['Only confirmed dates, prices, program details and testimonials.','No promises of healing outcomes.','Sexuality and eros are described with care and context, as on the website, never as a hook.','Every post, email and message ends with one clear action: apply.'],
+     done:'Applications close and the group is confirmed at or above the minimum.'},
+    {id:'s3', name:'Preparation', when:'8 to 1 weeks before', lead:'Laila, with the organizer', short:'Everyone paid or on a plan, letter sent',
+     lede:'Preparation turns a confirmed group into a ready event. It overlaps with the end of Invitation and covers logistics, payments, participant onboarding and the final program.',
+     groups:[
+      ['Team',[['Hold weekly check-ins and keep Trello up to date','L'],['Confirm the ground team: assistants, photographer, logistics help','O'],['Share the checklist with the organizer and ground team:','O',{href:GROUND,label:'Ground Team Checklist'}]]],
+      ['Venue and logistics',[['Confirm the venue layout: teaching space, dining area, altars, banners','O'],['Finalize rooms and catering, with the final headcount for meals and lodging','O'],['Confirm supplies: mats, linens, water station, candles, art materials, ritual tools','O'],['List participants who need transport and coordinate pickups','O']]],
+      ['Payments',[['Finalize supplier contracts and pay deposits','O'],['Send payment reminders and balance-due emails with the official payment link','L'],['Check the refund and cancellation policy is visible on the registration pages','L']]],
+      ['Participant onboarding',[['Keep the participant tracker current: confirmed, deposit only, fully paid','L'],['Send the pre-arrival letter: arrival time, travel tips, packing list, what to expect (Tria approves)','O'],['Use message templates for fully paid participants and for deposit holders who need a follow-up','L'],['Collect dietary, health and emergency contact details, if not already on the application','O'],['Open the private participant group (WhatsApp or Instagram)','O']]],
+      ['Program',[['Finalize the daily program: sessions, meals, breaks, rituals','T'],['Run a facilitator walk-through and a tech check','TC'],['Prepare the retreat manual or printed materials, if any','L'],['Build and test the post-event feedback form','L']]],
+      ['Marketing',[['Post countdown content and behind-the-scenes preparation','L'],['Plan event-week content with Tria, including which moments can be filmed, with participant consent','L']]]
+     ],
+     done:'Every participant has paid or has an agreed plan, the pre-arrival letter is sent, and the daily program is final.'},
+    {id:'s4', name:'Facilitation', when:'Arrival day to closing day', lead:'Tria for the program, the organizer for operations', short:'Closing circle complete',
+     lede:"Facilitation is the event itself. The team's job is to keep logistics invisible, so Tria and the co-facilitator can hold the space and participants feel safe and cared for.",
+     groups:[
+      ['Before arrival day',[['Check the participant list against arrival times','O'],['Send a final reminder: meeting point, arrival window, packing list','O'],['Set up the venue: altar, lighting, sound, mats and tables, technical gear','OU']]],
+      ['Each day',[['Morning and evening team check-ins','T'],['Run the day with the','U',{href:GROUND,label:'Ground Team Checklist'}],['Check sound, music and slides before each session','U'],['Support facilitators with timing and transitions','U'],['Make sure meals and drinks are ready on time, and dietary needs are met','OU'],['Watch participant wellbeing and emotional safety, with a named person for logistical or emotional emergencies','T'],['Keep a short log of key moments and changes, for the debrief','O'],['Capture photos or video only where participants have agreed','U']]],
+      ['Operations',[['Welcome and check in participants, and help with rooms','OU'],['Remind anyone with a balance to pay through the official link; never accept payment by hand','O'],['Settle on-site supplier balances and record facilitator and organizer payments in the shared tracker','O'],['Keep in clear contact with venue staff','O']]]
+     ],
+     done:'The closing circle is complete and participants have checked out.'},
+    {id:'s5', name:'Integration', when:'Within 2 weeks after', lead:'Laila', short:'Debrief held, SOP updated',
+     lede:'Integration completes the cycle: thank people, learn from the event, and invite participants to their next step, such as the Practitioner Program.',
+     groups:[
+      ['Participants',[['Send the feedback survey within 3 days','L'],["Ask for testimonials, with clear permission for how they're used",'L'],['Update the participant database with contact details and notes','L'],['Tag participants in the CRM for future offers, such as Immersion to Practitioner Program','L'],['Follow up one to one with participants who showed interest in going deeper','T']]],
+      ['Marketing',[['Share highlight photos or short videos, only with participant consent','L'],['Post a thank-you on social media','L'],["Send a newsletter celebrating the event and saying what's next (Tria approves)",'L'],['Open a waitlist for the next event and update the event card','L']]],
+      ['Logistics and payments',[['Take stock of supplies and store them','O'],['Return rented items, and check ingress and egress with the venue','O'],['Check the venue for damage and recover deposits','O'],['Close the budget: actual spend against plan','TO']]],
+      ['Team debrief',[['Hold a 60 to 90 minute debrief with facilitators and team','L'],['Celebrate wins, name challenges, and list improvements','A'],['Send thank-you messages to the venue, vendors and collaborators','O'],['Update this SOP and its templates with what we learned','L']]]
+     ],
+     done:'The debrief is held, the budget is closed and this SOP is updated.'}
+  ];
+
+  document.getElementById('stepper').innerHTML = S.map((s,i) =>
+    `<a class="step" href="#${s.id}"><span class="num">${i+1}</span><b>${s.name}</b><span class="when">${s.when}</span><span class="gate">${s.short}</span></a>`).join('');
+
+  document.getElementById('stages').innerHTML = S.map((s,i) => `
+    <section id="${s.id}" class="rv">
+      <div class="sec-head"><span class="num" aria-hidden="true">${i+1}</span><div><div class="eyebrow">Stage ${i+1}</div><h2>${s.name}</h2></div></div>
+      <p class="lede">${esc(s.lede)}</p>
+      <div class="chips"><span class="chip"><b>When</b> ${esc(s.when)}</span><span class="chip"><b>Lead</b> ${esc(s.lead)}</span></div>
+      <div class="groups">${s.groups.map(([t,items]) => `
+        <div class="card"><h3>${esc(t)}</h3><ul>${items.map(taskHtml).join('')}</ul></div>`).join('')}
+      </div>
+      ${s.rules ? `<div class="rules"><h3>Brand rules for everything we publish</h3><ul>${s.rules.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>` : ''}
+      <div class="gatebox"><span class="dia" aria-hidden="true"></span><div><b>Done when</b>${esc(s.done)}</div></div>
+    </section>`).join('');
+
+  // gentle reveal for sections below the first screen; content stays readable while it settles
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const secs = [...document.querySelectorAll('section.rv')];
+  if (!reduce && 'IntersectionObserver' in window) {
+    const vh = window.innerHeight || 800;
+    secs.forEach(el => { if (el.getBoundingClientRect().top > vh) el.classList.add('pre'); });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } }), {rootMargin:'0px 0px -8% 0px'});
+    secs.forEach(el => io.observe(el));
+  }
+  // highlight the current section in the sticky menu
+  const links = [...document.querySelectorAll('#toc a')];
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+    }), {rootMargin:'-40% 0px -55% 0px'});
+    secs.forEach(el => spy.observe(el));
+  }
+})();
+</script>
+
+</body></html>
